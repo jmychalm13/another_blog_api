@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
 
   get "/posts" => "posts#index"
+
+  post "/posts" => "posts#create"
 end
