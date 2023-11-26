@@ -35,4 +35,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal ["title", "content", "user_id", "created_at", "updated_at"], data.keys
   end
+
+  test "update" do
+    post = Post.first
+    patch "/posts/#{post.id}.json", params: { name: "Updated Title" }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal "Updated Title", data["title"]
+  end
 end
