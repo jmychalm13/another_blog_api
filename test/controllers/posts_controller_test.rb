@@ -27,4 +27,12 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       assert_response 200
     end
   end
+
+  test "show" do
+    get "/posts/#{Post.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["title", "content", "user_id", "created_at", "updated_at"], data.keys
+  end
 end

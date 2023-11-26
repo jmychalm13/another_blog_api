@@ -17,4 +17,10 @@ class PostsController < ApplicationController
       render json: {errors: @post.errors.full_messages}, status: 422
     end
   end
+
+
+  def show
+    @post = Post.find_by(id: params[:id])
+    render :show
+  end
 end

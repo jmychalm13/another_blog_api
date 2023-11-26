@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get "/posts" => "posts#index"
 
   post "/posts" => "posts#create"
+
+  get "/posts/:id" => "posts#show"
 end
